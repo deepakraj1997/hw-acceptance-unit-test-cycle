@@ -1,2 +1,6 @@
 class Movie < ActiveRecord::Base
+  def self.similar_movies movie_title
+    director = Movie.find_by(title: movie_title).director
+    director.blank? or director.nil? ? nil :  Movie.where(director: director).pluck(:title)
+  end
 end
