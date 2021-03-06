@@ -1,4 +1,5 @@
 require 'rails_helper'
+require "spec_helper"
  describe Movie do
   describe '.find_similar_movies' do
     let!(:movie1) { FactoryBot.create(:movie, title: 'Tot', director: 'Jose') }
