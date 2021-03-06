@@ -25,7 +25,7 @@ module NavigationHelpers
       movie_path(movie)
 
     when /^the Similar Movies page for "(.+)"/
-      search_movies_path($1)	    
+      search_movies_path_path($1)	    
 
     when /^the (RottenPotatoes )?home\s?page$/ then '/movies'
 

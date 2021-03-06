@@ -1,8 +1,8 @@
-<h2>Similar movies to <%= @movie.title %></h2>
+<h2>Similar movies to <%= @search_info[:movie].title %></h2>
 
 
 <ul id="sim_mov">
-	<% @movies.each do |movie| %>
+	<% @search_info[:similar_movies].each do |movie| %>
 		<li> <%= movie.title %> </li>
 	<% end %>
 </ul>
