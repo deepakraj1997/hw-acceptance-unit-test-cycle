@@ -1,4 +1,5 @@
 require 'simplecov'
+require 'rails_helper'
 SimpleCov.start 'rails'
 
 # This file is copied to spec/ when you run 'rails generate rspec:install'
@@ -52,4 +53,8 @@ RSpec.configure do |config|
   # The different available types are documented in the features, such as in
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
+end
+
+RSpec.configure do |config|
+  config.include FactoryBot::Syntax::Methods
 end
