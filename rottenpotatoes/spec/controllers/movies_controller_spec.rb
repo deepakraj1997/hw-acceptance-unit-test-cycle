@@ -63,7 +63,31 @@ describe MoviesController do
      expect(response).to redirect_to(movies_url)
     end
  end
- 
+ describe 'After Edit' do
+    let!(:movie) { FactoryBot.create(:movie) }
+    before do
+      get :edit, id: movie.id
+    end
+     it 'Should be in Edit Page' do
+      expect(response).to render_template('edit')
+    end
+ end 
+ describe 'After Update' do
+    let(:movies) { FactoryBot.create(:movie) }
+    before(:each) do
+      put :update, id: movies.id, movie: FactoryBot.attributes_for(:movie, title: 'RvP')
+    end
+     it 'Should be in Movies Page' do
+      expect(response).to redirect_to(movie_path(movies))
+    end
+ end
+ describe 'After destroy' do
+    let!(:movies) { FactoryBot.create(:movie) }
+     it 'Should be in Movies Page' do
+      delete :destroy, id: movies.id
+      expect(response).to redirect_to(movies_path)
+    end
+ end
 end
 
 
